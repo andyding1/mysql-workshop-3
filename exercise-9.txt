@@ -1,0 +1,3 @@
+mysql> SELECT email FROM Account WHERE id in (SELECT accountId FROM AddressBook WHERE id in (SELECT addressBookId FROM Entry WHERE id in (SELECT entryId FROM Phone WHERE content LIKE '_-%')));
+
+I RUN OUT OF CPU USAGE!!!
