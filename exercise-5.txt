@@ -1,25 +1,20 @@
-mysql> SELECT * FROM Entry WHERE (addressBookId=100 AND type='electronic-mail');
-+------+---------------+-----------+----------+---------------------+-----------------+
-| id   | addressBookId | firstName | lastName | birthday            | type            |
-+------+---------------+-----------+----------+---------------------+-----------------+
-| 4019 |           100 | Sage      | Cline    | 1959-10-05 06:58:43 | electronic-mail |
-| 4030 |           100 | Aquila    | Workman  | 1986-09-02 16:00:14 | electronic-mail |
-| 4060 |           100 | Tara      | Mann     | 1958-01-23 00:15:33 | electronic-mail |
-| 4392 |           100 | Christen  | Russell  | 1978-04-03 02:22:46 | electronic-mail |
-| 4486 |           100 | Jana      | Martin   | 1965-07-22 18:30:49 | electronic-mail |
-| 4585 |           100 | Regina    | Ayala    | 1983-08-19 09:57:18 | electronic-mail |
-| 4593 |           100 | Elmo      | Campos   | 1956-03-27 10:02:50 | electronic-mail |
-| 4628 |           100 | Bruce     | Sykes    | 1961-12-01 16:03:08 | electronic-mail |
-| 4680 |           100 | Jana      | Shepherd | 1992-05-26 06:20:08 | electronic-mail |
-| 4897 |           100 | Jackson   | Mays     | 1995-05-09 10:40:02 | electronic-mail |
-| 5021 |           100 | Clarke    | Dickson  | 1976-07-07 15:53:42 | electronic-mail |
-| 5243 |           100 | Blossom   | Franco   | 1998-01-09 20:24:51 | electronic-mail |
-| 5292 |           100 | Aristotle | Silva    | 1992-07-29 03:28:05 | electronic-mail |
-| 5466 |           100 | Nelle     | Jacobs   | 1992-08-27 23:02:43 | electronic-mail |
-| 5593 |           100 | Camden    | Bartlett | 1985-01-12 03:53:55 | electronic-mail |
-| 5693 |           100 | Cassidy   | Watkins  | 1951-04-02 21:16:58 | electronic-mail |
-| 5775 |           100 | Brent     | Lee      | 1957-03-26 20:14:26 | electronic-mail |
-| 6003 |           100 | Nathaniel | Craft    | 1972-11-09 21:12:20 | electronic-mail |
-| 6085 |           100 | Josephine | Grant    | 1960-07-23 16:14:25 | electronic-mail |
-+------+---------------+-----------+----------+---------------------+-----------------+
-19 rows in set (0.00 sec)
+mysql> SELECT ElectronicMail.content FROM AddressBook JOIN Entry JOIN ElectronicMail WHERE (AddressBook.id = Entry.addressBookId AND Entry.id = ElectronicMail.entryId AND AddressBook.id=100);
++--------------------------------------------+
+| content                                    |
++--------------------------------------------+
+| tortor.dictum@Nulla.org                    |
+| malesuada.fames.ac@Sedeu.co.uk             |
+| velit@vestibulum.co.uk                     |
+| tincidunt.congue.turpis@Inmi.net           |
+| vitae.diam@sapienAeneanmassa.com           |
+| Nunc.ac@parturientmontesnascetur.com       |
+| cursus.vestibulum@pellentesqueSeddictum.ca |
+| nibh.Donec.est@nibh.org                    |
+| eu.tellus@ipsum.co.uk                      |
+| massa.Quisque.porttitor@enimSednulla.edu   |
+| mauris.blandit.mattis@Integersemelit.net   |
+| eget@viverraMaecenasiaculis.net            |
+| vulputate.posuere.vulputate@liberoDonec.ca |
+| Nam.tempor@nisimagna.co.uk                 |
++--------------------------------------------+
+14 rows in set (0.01 sec)
