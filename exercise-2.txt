@@ -1,0 +1,6 @@
+mysql> use decodemtl_addressbook;
+Database changed
+
+mysql> source data/import-account.sql;
+mysql> source data/import-addressbook.sql;
+mysql> source data/import-entry.sql;
