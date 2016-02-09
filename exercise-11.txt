@@ -1,0 +1,62 @@
+mysql> SELECT city,country FROM Address WHERE country in ('Canada', 'Austria', 'Isle of Man', 'Ireland', 'Japan') GROUP BY city;                                                           
++----------------+-------------+
+| city           | country     |
++----------------+-------------+
+| ?slahiye       | Japan       |
+| Abbeville      | Japan       |
+| Alness         | Austria     |
+| Anápolis       | Canada      |
+| Angers         | Canada      |
+| Assen          | Ireland     |
+| Baulers        | Canada      |
+| Belfast        | Isle of Man |
+| Berlin         | Japan       |
+| Bodmin         | Austria     |
+| Bozeman        | Japan       |
+| Bremerhaven    | Isle of Man |
+| Cagnes-sur-Mer | Ireland     |
+| Calmar         | Canada      |
+| Cartago        | Ireland     |
+| Ceyhan         | Isle of Man |
+| Chartres       | Isle of Man |
+| Chestermere    | Ireland     |
+| Cork           | Canada      |
+| Denderbelle    | Isle of Man |
+| Dover          | Isle of Man |
+| Dubbo          | Austria     |
+| Edmundston     | Austria     |
+| Galway         | Ireland     |
+| Hamburg        | Austria     |
+| Hillsboro      | Canada      |
+| Horsham        | Isle of Man |
+| Houston        | Japan       |
+| Jackson        | Ireland     |
+| Kailua         | Isle of Man |
+| Kraków         | Ireland     |
+| Lasnigo        | Ireland     |
+| Mabompr?       | Canada      |
+| Meridian       | Ireland     |
+| Milena         | Japan       |
+| Moulins        | Canada      |
+| Nagaon         | Isle of Man |
+| Ogbomosho      | Isle of Man |
+| Pabianice      | Isle of Man |
+| Pietraroja     | Canada      |
+| Pontevedra     | Japan       |
+| Quesada        | Canada      |
+| Raj Nandgaon   | Ireland     |
+| Rollegem       | Canada      |
+| Rzeszów        | Japan       |
+| San Francisco  | Canada      |
+| San Vicente    | Isle of Man |
+| Satara         | Canada      |
+| Shimla         | Austria     |
+| Siedlce        | Austria     |
+| Springfield    | Canada      |
+| Tauranga       | Austria     |
+| Terneuzen      | Ireland     |
+| Tirrases       | Canada      |
+| Vienna         | Austria     |
+| Zwickau        | Austria     |
++----------------+-------------+
+56 rows in set (0.00 sec)
