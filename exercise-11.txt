@@ -1,4 +1,4 @@
-mysql> SELECT city,country FROM Address WHERE country in ('Canada', 'Austria', 'Isle of Man', 'Ireland', 'Japan') GROUP BY city;                                                           
+mysql> SELECT city,country FROM Address WHERE country in ('Canada', 'Austria', 'Isle of Man', 'Ireland', 'Japan') GROUP BY city,country;
 +----------------+-------------+
 | city           | country     |
 +----------------+-------------+
@@ -9,6 +9,7 @@ mysql> SELECT city,country FROM Address WHERE country in ('Canada', 'Austria', '
 | Angers         | Canada      |
 | Assen          | Ireland     |
 | Baulers        | Canada      |
+| Belfast        | Ireland     |
 | Belfast        | Isle of Man |
 | Berlin         | Japan       |
 | Bodmin         | Austria     |
@@ -17,6 +18,7 @@ mysql> SELECT city,country FROM Address WHERE country in ('Canada', 'Austria', '
 | Cagnes-sur-Mer | Ireland     |
 | Calmar         | Canada      |
 | Cartago        | Ireland     |
+| Ceyhan         | Austria     |
 | Ceyhan         | Isle of Man |
 | Chartres       | Isle of Man |
 | Chestermere    | Ireland     |
@@ -59,4 +61,4 @@ mysql> SELECT city,country FROM Address WHERE country in ('Canada', 'Austria', '
 | Vienna         | Austria     |
 | Zwickau        | Austria     |
 +----------------+-------------+
-56 rows in set (0.00 sec)
+58 rows in set (0.02 sec)

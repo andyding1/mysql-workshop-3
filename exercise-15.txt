@@ -1,0 +1,11 @@
+mysql> UPDATE ElectronicMail SET type='' WHERE type='home';
+Query OK, 920 rows affected, 920 warnings (0.05 sec)
+Rows matched: 920  Changed: 920  Warnings: 920
+
+mysql> UPDATE ElectronicMail SET type='home' WHERE type='work';                                                                                                                        
+Query OK, 690 rows affected (0.01 sec)
+Rows matched: 690  Changed: 690  Warnings: 0
+
+mysql> UPDATE ElectronicMail SET type='work' WHERE type='';                                                                                                                            
+Query OK, 920 rows affected (0.01 sec)
+Rows matched: 920  Changed: 920  Warnings: 0
