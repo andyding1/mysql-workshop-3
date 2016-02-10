@@ -1,3 +1,71 @@
+mysql> select email from Account join AddressBook on Account.id = AddressBook. accountId join Entry on AddressBook.id = Entry.addressBookId join Phone on Entry.id = Phone.entryId where Phone.content LIKE '1-%' group by email;
++-------------------------------------------------------+
+| email                                                 |
++-------------------------------------------------------+
+| adipiscing.fringilla.porttitor@Quisqueac.edu          |
+| adipiscing@Sedetlibero.ca                             |
+| ante@nulla.edu                                        |
+| aptent@nequesedsem.edu                                |
+| bibendum@orciUtsemper.com                             |
+| blandit@nec.com                                       |
+| commodo@tincidunt.co.uk                               |
+| consectetuer.rhoncus.Nullam@temporloremeget.org       |
+| consectetuer.rhoncus@pedeacurna.net                   |
+| dapibus.quam@interdumligulaeu.ca                      |
+| diam.luctus.lobortis@ipsumac.ca                       |
+| dignissim.lacus@vel.ca                                |
+| Donec.vitae@Phasellusornare.org                       |
+| Duis.ac.arcu@ascelerisque.co.uk                       |
+| egestas.Fusce.aliquet@nec.edu                         |
+| est.ac@etmalesuadafames.ca                            |
+| et.ipsum.cursus@euaugue.com                           |
+| eu.metus@atlibero.co.uk                               |
+| eu@Crasvulputatevelit.com                             |
+| facilisis.non@vulputateullamcorpermagna.ca            |
+| iaculis.nec@magnaCrasconvallis.co.uk                  |
+| inceptos@dictummagna.org                              |
+| ipsum.Donec@tellus.ca                                 |
+| ipsum.non@Nullaeu.net                                 |
+| leo@temporloremeget.co.uk                             |
+| libero.lacus.varius@gravidaAliquamtincidunt.com       |
+| lobortis@elementumpurus.co.uk                         |
+| lorem@apurusDuis.edu                                  |
+| magna.Praesent@Lorem.ca                               |
+| magna.Sed.eu@duiSuspendisseac.edu                     |
+| mauris@placeratCrasdictum.net                         |
+| Morbi.neque@erat.org                                  |
+| Nam.consequat.dolor@nondapibusrutrum.ca               |
+| natoque@perinceptoshymenaeos.net                      |
+| nec.ligula@sedtortorInteger.com                       |
+| neque.vitae@enimcommodohendrerit.net                  |
+| non.justo.Proin@variuset.edu                          |
+| non@eget.com                                          |
+| nulla.vulputate@Nullamscelerisque.co.uk               |
+| Nunc.pulvinar.arcu@vel.ca                             |
+| orci.consectetuer.euismod@lacinia.com                 |
+| Phasellus.vitae@diamat.com                            |
+| porta@Vivamus.com                                     |
+| Praesent@miDuis.net                                   |
+| Proin.nisl@arcuMorbisit.net                           |
+| quam.dignissim.pharetra@sed.co.uk                     |
+| Quisque@Donec.net                                     |
+| ridiculus.mus@euismod.net                             |
+| semper.egestas.urna@ipsumSuspendissesagittis.ca       |
+| sit.amet.metus@orcilacus.net                          |
+| Suspendisse.non@nullavulputatedui.ca                  |
+| tincidunt.nibh.Phasellus@Inscelerisquescelerisque.net |
+| ultrices.sit@arcu.co.uk                               |
+| ultricies.adipiscing@cursusluctusipsum.co.uk          |
+| Ut.sagittis.lobortis@semperduilectus.net              |
+| ut@Integersemelit.org                                 |
+| Vestibulum.ante.ipsum@egestasblanditNam.net           |
+| vitae@tinciduntpede.com                               |
+| Vivamus.euismod.urna@anteNunc.net                     |
+| Vivamus.molestie@Infaucibus.org                       |
++-------------------------------------------------------+
+60 rows in set (0.01 sec)
+
+
 mysql> SELECT ElectronicMail.content, accounts.id FROM AddressBook JOIN Entry JOIN ElectronicMail JOIN (SELECT Account.id FROM Account JOIN (SELECT accountId FROM AddressBook JOIN(SELECT addressBookId FROM Entry JOIN(SELECT entryId FROM Phone WHERE content LIKE '_-%' GROUP BY entryId) AS entryTable WHERE (Entry.id=entryTable.entryId)) AS addressTable WHERE(AddressBook.id=addressTable.addressBookId)) AS accountTable WHERE(Account.id=accountTable.accountId) GROUP BY Account.id) AS accounts WHERE(accounts.id=AddressBook.accountId AND AddressBook.id=Entry.addressBookId AND Entry.id=ElectronicMail.entryId) ORDER BY accounts.id;
 +--------------------------------------------------------+----+
 | content                                                | id |
