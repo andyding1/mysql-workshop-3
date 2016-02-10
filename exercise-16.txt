@@ -1,0 +1,43 @@
+mysql> SELECT *,SUBSTRING_INDEX(SUBSTRING(addressLine1, 15), ' ', 1) AS civicNum FROM Address WHERE (type='other' AND id>=715 AND id<=800 AND addressLine1 LIKE 'P.O.%')
+    -> UNION
+    -> SELECT *, SUBSTRING_INDEX(SUBSTRING(addressLine1, 9), ' ', 1) AS civicNum FROM Address WHERE (type='other' AND id>=715 AND id<=800 AND addressLine1 LIKE 'Ap%')
+    -> UNION
+    -> SELECT *, SUBSTRING_INDEX(SUBSTRING(addressLine1,5), ' ', 1) AS civicNum FROM Address WHERE (type='other' AND id>=715 AND id<=800 AND addressLine1 LIKE '___-%')
+    -> UNION
+    -> SELECT *, SUBSTRING_INDEX(addressLine1, ' ', 1) AS civicNum FROM Address WHERE (type='other' AND id>=715 AND id<=800 AND addressLine1 NOT LIKE 'P.O.%' AND addressLine1 NOT LIKE 'Ap%' AND addressLine1 NOT LIKE '___-%')
+    -> ;
++-----+---------+-------+--------------------------------------+--------------+--------------+----------------+---------------------------------------+------------+----------+
+| id  | entryId | type  | addressLine1                         | addressLine2 | city         | province       | country                               | postalCode | civicNum |
++-----+---------+-------+--------------------------------------+--------------+--------------+----------------+---------------------------------------+------------+----------+
+| 723 |    3174 | other | P.O. Box 893, 8466 Consectetuer Road | NULL         | Ikot Ekpene  | Akwa Ibom      | Croatia                               | 17-664     | 8466     |
+| 725 |    3188 | other | P.O. Box 706, 8112 Eleifend Av.      | NULL         | Reading      | PA             | Thailand                              | 3345       | 8112     |
+| 730 |    3483 | other | P.O. Box 653, 376 Vehicula. St.      | NULL         | Whakatane    | NI             | United Kingdom (Great Britain)        | 62117      | 376      |
+| 751 |    3370 | other | P.O. Box 244, 4009 Mollis Rd.        | NULL         | Beausejour   | MB             | Congo, the Democratic Republic of the | 8572       | 4009     |
+| 754 |    3929 | other | P.O. Box 936, 1491 Augue St.         | NULL         | Köflach      | Stm            | Moldova                               | S1S 2K3    | 1491     |
+| 785 |    3801 | other | P.O. Box 904, 8655 Sed Rd.           | NULL         | Desamparados | SJ             | Kazakhstan                            | U56 4CJ    | 8655     |
+| 786 |    3962 | other | P.O. Box 261, 2764 Nascetur Avenue   | NULL         | Gateshead    | Durham         | Greenland                             | 31-046     | 2764     |
+| 788 |    2489 | other | P.O. Box 413, 5407 Sit Ave           | NULL         | Frankfort    | KY             | Norfolk Island                        | 3394       | 5407     |
+| 721 |    3615 | other | Ap #386-6225 Purus. St.              | NULL         | Karacabey    | Bur            | Suriname                              | 2258PL     | 6225     |
+| 722 |    2128 | other | Ap #794-6514 Lorem St.               | NULL         | Ajax         | Ontario        | Lithuania                             | G48 7XY    | 6514     |
+| 728 |    3991 | other | Ap #390-9621 Montes, Ave             | NULL         | Berlin       | BE             | Kyrgyzstan                            | 395717     | 9621     |
+| 729 |    2350 | other | Ap #587-8830 Dui. Av.                | NULL         | Newbury      | BR             | Turkmenistan                          | 2351       | 8830     |
+| 757 |    2826 | other | Ap #217-3888 Et Street               | NULL         | Santarém     | Pará           | Greece                                | 74278      | 3888     |
+| 760 |    3871 | other | Ap #451-2194 Nunc St.                | NULL         | Hulst        | Zeeland        | Vanuatu                               | 7757       | 2194     |
+| 781 |    2014 | other | Ap #769-5198 Aenean Rd.              | NULL         | Broken Arrow | OK             | San Marino                            | 9275JU     | 5198     |
+| 789 |    3592 | other | Ap #337-110 Eget St.                 | NULL         | Godhra       | GJ             | Paraguay                              | 6339       | 110      |
+| 727 |    2515 | other | 507-8762 Risus Ave                   | NULL         | João Pessoa  | Paraíba        | Bahamas                               | 62-654     | 8762     |
+| 755 |    3333 | other | 355-6963 Eu, Ave                     | NULL         | Gisborne     | NI             | Slovenia                              | 20012      | 6963     |
+| 758 |    2249 | other | 770-2070 Auctor Road                 | NULL         | Macclesfield | CH             | Mozambique                            | R0T 1X8    | 2070     |
+| 759 |    3791 | other | 832-8054 Enim Rd.                    | NULL         | Tirrases     | SJ             | Canada                                | 61422      | 8054     |
+| 784 |    3295 | other | 318-7395 Vehicula St.                | NULL         | Cabano       | QC             | Cocos (Keeling) Islands               | 81054      | 7395     |
+| 787 |    2339 | other | 735-9055 Dignissim Avenue            | NULL         | Cork         | Munster        | Mozambique                            | 7464QU     | 9055     |
+| 724 |    3294 | other | 7509 Elit St.                        | NULL         | LaSalle      | QC             | Belgium                               | 670656     | 7509     |
+| 726 |    2403 | other | 999 Metus St.                        | NULL         | Buren        | Gelderland     | Mozambique                            | 5165       | 999      |
+| 752 |    2821 | other | 8365 Tristique Ave                   | NULL         | Nancy        | LO             | Barbados                              | 87-472     | 8365     |
+| 753 |    3425 | other | 297 Dignissim St.                    | NULL         | Madison      | Wisconsin      | Wallis and Futuna                     | 82740-798  | 297      |
+| 756 |    2169 | other | 1338 Interdum. St.                   | NULL         | Barcelona    | Catalunya      | France                                | 238546     | 1338     |
+| 782 |    2375 | other | 267 Est. Road                        | NULL         | Yeovil       | Somerset       | Luxembourg                            | 52261-518  | 267      |
+| 783 |    2098 | other | 8136 Fringilla St.                   | NULL         | Argenteuil   | Île-de-France  | Timor-Leste                           | 924878     | 8136     |
+| 790 |    3394 | other | 578 Eu Av.                           | NULL         | Gretna       | DF             | Sri Lanka                             | 1191       | 578      |
++-----+---------+-------+--------------------------------------+--------------+--------------+----------------+---------------------------------------+------------+----------+
+30 rows in set (0.00 sec)
